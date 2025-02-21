@@ -1,0 +1,18 @@
+{
+  "name": "inker",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

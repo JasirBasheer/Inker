@@ -1,0 +1,30 @@
+name: Lint Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies (for all workspaces)
+        run: npm ci
+
+      - name: Run ESLint (Frontend)
+        run: npm run lint --workspace=frontend -- --max-warnings=0
+
+      - name: Run ESLint (Backend)
+        run: npm run lint --workspace=backend -- --max-warnings=0
